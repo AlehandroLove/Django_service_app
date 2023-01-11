@@ -24,8 +24,7 @@ services:
       - POSTGRES_DB=dbname
       - POSTGRES_USER=dbuser
       - POSTGRES_PASSWORD=pass
-<<<<<<< HEAD
-=======
+
 
   redis:
     image: redis:7.0.5-alpine
@@ -41,4 +40,17 @@ services:
       - redis
     depends_on:
       - redis
->>>>>>> ab541e4 (Day 5)
+
+
+  flower:
+    build:
+      context: .
+    hostname: flower
+    entrypoint: celery
+    command: -A celery_app.app flower
+    volumes:
+      - ./service:/service
+    depends_on:
+      - redis
+    ports:
+      - "5555:5555"

@@ -143,8 +143,7 @@ LOGGING = {
         }
     }
 }
-<<<<<<< HEAD
-=======
+
 
 CELERY_BROKER_URL = 'redis://redis:6379/0'
->>>>>>> ab541e4 (Day 5)
+
