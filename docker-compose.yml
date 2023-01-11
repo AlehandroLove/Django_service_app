@@ -37,7 +37,7 @@ services:
     entrypoint: celery
     command: -A celery_app.app worker --loglevel=info
     volumes:
-      - redis
+      - ./redis
     depends_on:
       - redis
 
